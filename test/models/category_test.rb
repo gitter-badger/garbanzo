@@ -27,4 +27,10 @@ class CategoryTest < ActiveSupport::TestCase
     category = Category.create(name: "taxi driver")
     assert_equal "Taxi driver", category.name, "The name should have been capitalized"
   end
+
+  test 'category is not valid without a unique name' do
+    category = Category.new(name: categories(:programmer).name)
+    assert category.invalid?, "shouldn't have been valid, because that name already was used."
+    assert_equal ['has already been taken'], category.errors[:name], "shouldn't have been saved, because that name already was used."
+  end
 end
