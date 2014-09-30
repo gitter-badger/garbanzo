@@ -10,7 +10,5 @@
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: one
-two:
-  name: two
+engineer:
+  name:
