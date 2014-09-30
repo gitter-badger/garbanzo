@@ -19,7 +19,12 @@ class CategoryTest < ActiveSupport::TestCase
   end
 
   test 'should not save category name with leading or trailing whitespaces' do
-    category = Category.create(name: " taxi driver ")
-    assert_equal "taxi driver", category.name, "The name should have been saved without leading or trailing whitespaces"
+    category = Category.create(name: " Taxi driver ")
+    assert_equal "Taxi driver", category.name, "The name should have been saved without leading or trailing whitespaces"
+  end
+
+  test 'should save the capitalize version of the category name' do
+    category = Category.create(name: "taxi driver")
+    assert_equal "Taxi driver", category.name, "The name should have been capitalized"
   end
 end
