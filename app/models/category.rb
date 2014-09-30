@@ -10,4 +10,10 @@
 
 class Category < ActiveRecord::Base
   validates_presence_of :name
+
+  before_save :strip_name
+
+  def strip_name
+    self.name = self.name.strip
+  end
 end
